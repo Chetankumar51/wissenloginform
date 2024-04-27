@@ -1,5 +1,4 @@
-// UserList.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -7,30 +6,29 @@ function UserList() {
   const cellStyle = {
     padding: "8px",
     textAlign: "left",
-    borderBottom: "1px solid #ddd"
+    borderBottom: "1px solid #ddd",
   };
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (!token) {
-        // Redirect to login if token is not found
         return;
       }
       try {
-        const response = await fetch('https://reqres.in/api/users', {
+        const response = await fetch("https://reqres.in/api/users", {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
         if (!response.ok) {
-          throw new Error('Failed to fetch users');
+          throw new Error("Failed to fetch users");
         }
         const data = await response.json();
         setUsers(data.data);
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error("Error fetching users:", error);
       }
     };
     fetchUsers();
@@ -38,27 +36,24 @@ function UserList() {
 
   return (
     <div style={{ marginLeft: "10%", marginTop: "70px" }}>
-  <h2>User List</h2>
-  <table>
-    <thead>
-      <tr>
-        <th style={cellStyle}>ID</th>
-        <th style={cellStyle}>Email</th>
-        {/* Add more table headers as needed */}
-      </tr>
-    </thead>
-    <tbody>
-      {users.map((user) => (
-        <tr key={user.id}>
-          <td style={cellStyle}>{user.id}</td>
-          <td style={cellStyle}>{user.email}</td>
-          {/* Add more table cells as needed */}
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+      <h2>User List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style={cellStyle}>ID</th>
+            <th style={cellStyle}>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td style={cellStyle}>{user.id}</td>
+              <td style={cellStyle}>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

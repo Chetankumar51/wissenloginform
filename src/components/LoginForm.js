@@ -24,7 +24,6 @@ function LoginForm() {
       }
       const { token } = await response.json();
       localStorage.setItem("token", token);
-      // history.push('/user-list');
       toast.success("Login successful!");
     } catch (error) {
       setError(error.message);
