@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+
+.login_main{
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.form_wrapper{
+  
+}
+
+.form_div{
+
+}
+
+.label_title{
+  margin-bottom: 0;
+}
+
+.input_style{
+  height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+
+.button_next{
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(110, 153, 218);
+  border: none;
+}
+
+
+
